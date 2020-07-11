@@ -13,7 +13,7 @@ def create_parser():
 
 def convert_freeclimb():
     freeclimb_grades = {}
-    with open("/Users/whompus/projects/font_converter/freeclimb_grades.txt") as f:
+    with open("/Users/whompus/projects/font_converter/grades/freeclimb_grades.txt") as f:
         for line in f:
             (key, val) = line.split()
             freeclimb_grades[str(key)] = val
@@ -21,7 +21,7 @@ def convert_freeclimb():
 
 def convert_boulder():
     boulder_grades = {}
-    with open("/Users/whompus/projects/font_converter/boulder_grades.txt") as f:
+    with open("/Users/whompus/projects/font_converter/grades/boulder_grades.txt") as f:
         for line in f:
             (key, val) = line.split()
             boulder_grades[str(key.lower())] = val.lower()
