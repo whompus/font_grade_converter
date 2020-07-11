@@ -9,7 +9,7 @@ Usage:
 More improvements coming, using this repo to track my progress on more features.
 
 ### TODO:
-
+- [ ] - Algorithm to convert grades instead of text files
 - [ ] - Make grades convert the other way (from YDS to Font and from Hueco to Font)
 - [ ] - Make into a proper wheel distribution for ease of use
 - [ ] - Figure out how to package the text files so that the script can be run from anywhere, not just the dir that the project resides. This could be solved by the above?
