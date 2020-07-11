@@ -2,7 +2,7 @@
 
 # Command line tool to convert font grade to YDS
 
-from argparse import Action, ArgumentParser
+from argparse import ArgumentParser
 
 def create_parser():
     parser = ArgumentParser(description="Climbing grade converter - font to YDS and font to Hueco")
