@@ -6,7 +6,7 @@ from argparse import ArgumentParser
 
 def create_parser():
     parser = ArgumentParser(description="Climbing grade converter - font to YDS and font to Hueco")
-    parser.add_argument('grade', help='The grade to convert, either Font or YDS')
+    parser.add_argument('grade', help='The grade to convert, either Font (e.g 8a) or YDS (e.g. 13b)')
     parser.add_argument('type', help="The type of climb, either freeclimb or boulder")
     return parser
 
