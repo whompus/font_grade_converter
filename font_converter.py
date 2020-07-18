@@ -29,6 +29,7 @@ def convert_boulder():
 
 def font_grade_converter():
     args = create_parser().parse_args()
+    
     grade = args.grade.lower()
     type_of_climb = args.type.lower()
 
@@ -39,10 +40,16 @@ def font_grade_converter():
         for v_scale, font in boulder_grades.items():
             if font == grade:
                 print(v_scale)
+                break
+        else:
+            print(f"'{grade}' not a valid bouldering grade")
     elif type_of_climb == 'freeclimb':
         for yds, font_freeclimb in freeclimb_grades.items():
             if font_freeclimb == grade:
                 print(yds)
+                break
+        else:
+            print(f"'{grade}' not a valid grade")
     else:
         print(f"'{type_of_climb}' not a valid type, type needs to be freeclimb or boulder")
 
