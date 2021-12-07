@@ -2,6 +2,8 @@
 
 # Command line tool to convert font grade to YDS
 
+# TODO: fix multiple values having same key (6B+/6B, etc.)
+
 from argparse import ArgumentParser
 
 def create_parser():
@@ -13,29 +15,29 @@ def create_parser():
 
 def convert_freeclimb():
     freeclimb_grades = {}
-    with open("./grades/freeclimb_grades.txt") as f:
+    with open("/Users/whompus/projects/font_converter/grades/freeclimb_grades.txt") as f:
         for line in f:
-            (key, val) = line.split()
+            key, val = line.strip().split(' ', 1)
             freeclimb_grades[str(key)] = val
     return freeclimb_grades
 
 def convert_boulder():
     boulder_grades = {}
-    with open("./grades/boulder_grades.txt") as f:
+    with open("/Users/whompus/projects/font_converter/grades/boulder_grades.txt") as f:
         for line in f:
-            (key, val) = line.split()
-            boulder_grades[str(key.lower())] = val.lower()
+            key, val = line.strip().split(' ', 1)
+            boulder_grades[str(key)] = val
     return boulder_grades
 
 def font_grade_converter():
     args = create_parser().parse_args()
     
-    grade = args.grade.lower()
+    grade = args.grade.upper()
     type_of_climb = args.type.lower()
 
     freeclimb_grades = convert_freeclimb()
     boulder_grades = convert_boulder()
-
+    
     if type_of_climb == 'boulder':
         for v_scale, font in boulder_grades.items():
             if font == grade:
@@ -43,6 +45,7 @@ def font_grade_converter():
                 break
         else:
             print(f"'{grade}' not a valid bouldering grade")
+
     elif type_of_climb == 'freeclimb':
         for yds, font_freeclimb in freeclimb_grades.items():
             if font_freeclimb == grade:
